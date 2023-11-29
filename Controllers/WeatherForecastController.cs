@@ -18,6 +18,12 @@ namespace AusWalk.API.Controllers
             _logger = logger;
         }
 
+        [Route("Summarys/{index}")]
+        [HttpGet]
+        public string GetSummary([FromRoute] int index)
+        {
+            return Summaries[index];
+        }
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
@@ -29,5 +35,6 @@ namespace AusWalk.API.Controllers
             })
             .ToArray();
         }
+
     }
 }
